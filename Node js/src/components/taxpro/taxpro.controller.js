@@ -26,6 +26,22 @@ const Taxprocontroller={
   }
 
 },
+
+listdata: async (httpRequest) => {
+  try {
+  const listData = await TaxProService.dolistData(httpRequest.body);
+  return {
+    statusCode: 200,
+    body: {
+      data: listData
+    }
+  };
+} catch (error) {
+  logger.error('listdata()' + error);
+  throw new BadRequestError(error.message);
+}
+
+},
 //function for Viewing the tax professionals by their Id
 viewDetails: async (httpRequest) => {
   try {

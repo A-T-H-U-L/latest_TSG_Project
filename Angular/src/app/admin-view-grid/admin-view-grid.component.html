@@ -1,12 +1,7 @@
-<!-- 
-<ag-grid-angular
-   style="width: 100%; height: 100%"
-   class="ag-theme-alpine"
-   [columnDefs]="columnDefs"
-   [defaultColDef]="defaultColDef"
-   [rowData]="rowData$ | async"
-   [rowSelection]="'multiple'"
-
- 
- ></ag-grid-angular> -->
-asaD
+<div id="grid-box">
+  <div>
+    <div> <ag-grid-angular style="width: 1400px; height: 100vh;" class="ag-theme-alpine" [rowData]="rowData"
+        [columnDefs]="columnDefs" [rowSelection]="'multiple'" [animateRows]="true"
+        (cellClicked)="onCellClicked($event)"> </ag-grid-angular> </div>
+  </div>
+</div>

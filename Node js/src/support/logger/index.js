@@ -18,7 +18,7 @@ const logFormatter = winston.format.printf((info) => {
 
 const logger = winston.createLogger({
   maxsize: 5242880, // 5MB
-  maxFiles: 5,
+  maxFiles: 50,
   level: 'debug',
   format: winston.format.combine(
     winston.format.timestamp({
@@ -36,9 +36,10 @@ const logger = winston.createLogger({
   ]
 });
 
-if (NODE_ENV === 'production') {
-  logger.add(new winston.transports.File({ filename: 'logs/error.log', level: 'error' }));
-  logger.add(new winston.transports.File({ filename: 'logs/combined.log', level: 'debug' }));
+if (NODE_ENV === 'development') {
+  
+  logger.add(new winston.transports.File({ filename: 'error.log', level: 'error' }));
+  logger.add(new winston.transports.File({ filename: 'combined.log', level: 'debug' }));
 }
 
 module.exports = logger;

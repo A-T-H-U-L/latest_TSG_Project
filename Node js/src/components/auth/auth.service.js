@@ -18,6 +18,7 @@ const AuthService = {
 
   doLogin: async (requestBody) => {
     try {
+      //email and password from the object is stored to variable and binded to query
     const { email, password } = requestBody;
     let queryObj1=`SELECT user_account.name, user_account.email, user_account.password, rolelist.roleId
     FROM user_account
@@ -25,9 +26,10 @@ const AuthService = {
     ON user_account.userId = rolelist.userId
     WHERE user_account.email = '${email}';`
     // let queryObj = `select * from user_account where email = '${email}'`;
-
+//query is passesd for execution and result is stored in  resultObj
     const resultObj = await db.promise(queryObj1);
     console.log("daqta ",password, resultObj[0].roleId);
+    //checking the hashed registered password and user entered password
     const passwordMatch = await bcrypt.compare(password, resultObj[0].password);
 
     console.log("passwordMatch",passwordMatch)
@@ -38,9 +40,10 @@ const AuthService = {
 
     payload = {
       userId: resultObj[0].userId,
-      userRole: resultObj[0].roleId,//user type
+      userRole: resultObj[0].roleId,
+      userName: resultObj[0].name,
     };
-
+// token is created with payload containing userId,roleId
     const accessToken = await JwtService.generateJWT({
       payload
     });
@@ -56,9 +59,11 @@ const AuthService = {
 
   doRegister: async (requestBody) => {
     try {
+      //name ,email and password from the object is stored to variable and binded to query
       const { name, email, password} = requestBody; 
       var sqlQuery = `SELECT email from user_account where email = '${email}'`;
       const emailResult = await db.promise(sqlQuery);
+      // checking if email alredy exist or not
       if (!emailResult.length == 0) {
         return new BadRequestError('Email is already in use');
       }

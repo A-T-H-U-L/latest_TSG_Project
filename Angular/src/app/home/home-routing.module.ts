@@ -11,7 +11,7 @@ import { RoleGuard } from '@app/auth/roleGuard';
 const routes: Routes = [
   Shell.childRoutes([
 
-    { path: 'home', component: HomeComponent, data: { title: marker('Home') },canActivate:[RoleGuard.forRoles(1),AuthenticationGuard] },
+    { path: 'home', component: HomeComponent, data: { title: marker('Home') },canActivate:[RoleGuard.forRoles(1)] },
    
   ]),
 ];

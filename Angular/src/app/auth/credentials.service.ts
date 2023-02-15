@@ -19,7 +19,8 @@ const rolekey='_app_data'
 export class CredentialsService {
   private _credentials: any | null = null;
   private _role:any | null = null;
-
+  private _name:any | null = null;
+  
   constructor() {
     const savedCredentials = sessionStorage.getItem(credentialsKey) || localStorage.getItem(credentialsKey);
     if (savedCredentials) {
@@ -34,12 +35,23 @@ export class CredentialsService {
   isAuthenticated(): boolean {
     return !!this.credentials;
   }
-getRole():number{
-  console.log('sas')
-  console.log("id",JSON.parse(sessionStorage.getItem("_app_data")|| ""))
- return JSON.parse(sessionStorage.getItem("_app_data")|| "");
+    getRole():number{
+      console.log('sas')
+      console.log("id",JSON.parse(sessionStorage.getItem("_app_data")|| ""))
+    return JSON.parse(sessionStorage.getItem("_app_data")|| "");
 
-}
+    }
+
+    getUserName():any{
+      
+    return this._name;
+
+    }
+    getUserRole():any{
+      
+      return this._role;
+  
+    }
   /**
    * Gets the user credentials.
    * @return The user credentials or null if the user is not authenticated.
@@ -67,7 +79,8 @@ getRole():number{
   setCredentials(credentialObj:any) {
     if (credentialObj) {
       this._credentials = credentialObj.data.accessToken;
-this._role=credentialObj.data.userRole
+      this._role=credentialObj.data.userRole
+      this._name=credentialObj.data.userName;
       
     sessionStorage.setItem(credentialsKey, credentialObj.data.accessToken);
     sessionStorage.setItem(rolekey, credentialObj.data.userRole);

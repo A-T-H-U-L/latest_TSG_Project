@@ -53,5 +53,6 @@ module.exports = ({ router, TaxProController, makeExpressCallback }) => {
 
     router.get('/view/:id',authorization, makeExpressCallback(TaxProController.viewDetails));
     router.post('/add', makeExpressCallback(TaxProController.addTaxPro));
+    router.get('/dataList',authorization, makeExpressCallback(TaxProController.listdata));
     return router;
   };

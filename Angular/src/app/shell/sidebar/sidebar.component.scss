@@ -55,16 +55,18 @@
   }
   
   #nav-bar {
-    width: 197px;
+    height: 100vh;
+    /* border: 1px solid; */
+    box-shadow: 0 6px 10px rgb(0 0 0 / 8%), 0 0 6px rgb(0 0 0 / 5%);
+
     background: var(--navbar-dark-primary);
-    border-radius: 16px;
     display: flex;
     flex-direction: column;
-    color: var(--navbar-light-primary);
+    background:  #f5d2a4;
+    border-radius: 3px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     overflow: hidden;
     user-select: none;
-    margin-top: 30px;
   }
   #nav-bar hr {
     margin: 0;
@@ -141,12 +143,11 @@
   }
   
   #nav-content {
-    width: 197px;
     margin: -16px 0;
     padding: 16px 0;
     position: relative;
     flex: 1;
-    width: 300px;
+
     background: var(--navbar-dark-primary);
     box-shadow: 0 0 0 16px var(--navbar-dark-primary);
     direction: rtl;

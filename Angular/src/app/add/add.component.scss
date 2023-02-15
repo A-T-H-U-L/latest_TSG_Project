@@ -211,8 +211,8 @@
     box-sizing: border-box;
 }
 .container-box{
-    background: linear-gradient(to bottom, #5d326c, #350048);
-    position:fixed;
+    background: rgb(233 191 142);
+    height: 100vh;
     top:0px;
     bottom:0px;
     left:0px;
@@ -339,6 +339,12 @@ color: #c49dd1;
 
 
 
+#state{
+    color: #000;
+    option{
+        color: #000;
+    }
+}
 
 
 

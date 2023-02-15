@@ -12,7 +12,7 @@ import { AuthenticationroleGuard } from './auth/authenticationrole.guard';
 const routes: Routes = [
   // { path: '', redirectTo: '', pathMatch: 'full' },
   
-  { path: 'addDetail', component: AddComponent, data: { title: marker('Add') }}
+ 
   
 ];
 

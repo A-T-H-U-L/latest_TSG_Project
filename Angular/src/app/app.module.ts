@@ -32,6 +32,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import { ToastrModule } from 'ngx-toastr';
 import { AdminViewGridModule } from './admin-view-grid/admin-view-grid.module';
 import { adminModule } from './admin-home/admin-home.module';
+import { UserViewComponent } from './user-view/user-view.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -59,7 +60,7 @@ import { adminModule } from './admin-home/admin-home.module';
    
 
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, UserViewComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

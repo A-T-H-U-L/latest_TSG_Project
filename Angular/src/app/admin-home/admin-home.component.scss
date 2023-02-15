@@ -2,29 +2,34 @@
 
 * {
     margin: 0;
-    padding: 0;
+    padding: 3px;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
+    background-color: #fcffff;
 }
 
-.container-box {
+.btn-container-box {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(to bottom, #5d326c, #350048);
+    background: rgb(233 191 142);
     /*fiolet*/
 }
 
-.container {
+.btn-container {
+    height: 100vh;
     width: 1000px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding-top: 200px;
+    padding-left: 150px;
+    background-color: #fcffff;
 }
 
-.container .btn {
+.btn-container .btn {
     position: relative;
     top: 0;
     left: 0;
@@ -36,7 +41,7 @@
     align-items: center;
 }
 
-.container .btn a {
+.btn-container .btn a {
     position: absolute;
     top: 0;
     left: 0;
@@ -61,11 +66,11 @@
     backdrop-filter: blur(15px);
 }
 
-.container .btn:hover a {
+.btn-container .btn:hover a {
     letter-spacing: 3px;
 }
 
-.container .btn a::before {
+.btn-container .btn a::before {
     content: "";
     position: absolute;
     top: 0;
@@ -78,11 +83,11 @@
     filter: blur(0px);
 }
 
-.container .btn:hover a::before {
+.btn-container .btn:hover a::before {
     transform: skewX(45deg) translate(200px);
 }
 
-.container .btn::before {
+.btn-container .btn::before {
     content: "";
     position: absolute;
     left: 50%;
@@ -96,7 +101,7 @@
     transition-delay: 0.5;
 }
 
-.container .btn:hover::before
+.btn-container .btn:hover::before
 
 /*lightup button*/
     {
@@ -106,7 +111,7 @@
     border-radius: 30px;
 }
 
-.container .btn::after {
+.btn-container .btn::after {
     content: "";
     position: absolute;
     left: 50%;
@@ -120,7 +125,7 @@
     transition-delay: 0.5;
 }
 
-.container .btn:hover::after
+.btn-container .btn:hover::after
 
 /*lightup button*/
     {
@@ -130,26 +135,31 @@
     border-radius: 30px;
 }
 
-.container .btn:nth-child(1)::before,
+.btn-container .btn:nth-child(1)::before,
 /*chnage 1*/
-.container .btn:nth-child(1)::after {
+.btn-container .btn:nth-child(1)::after {
     background: #ff1f71;
     box-shadow: 0 0 5px #ff1f71, 0 0 15px #ff1f71, 0 0 30px #ff1f71,
         0 0 60px #ff1f71;
 }
 
-.container .btn:nth-child(2)::before,
+.btn-container .btn:nth-child(2)::before,
 /* 2*/
-.container .btn:nth-child(2)::after {
+.btn-container .btn:nth-child(2)::after {
     background: #2db2ff;
     box-shadow: 0 0 5px #2db2ff, 0 0 15px #2db2ff, 0 0 30px #2db2ff,
         0 0 60px #2db2ff;
 }
 
-.container .btn:nth-child(3)::before,
+.btn-container .btn:nth-child(3)::before,
 /* 3*/
-.container .btn:nth-child(3)::after {
+.btn-container .btn:nth-child(3)::after {
     background: #1eff45;
     box-shadow: 0 0 5px #1eff45, 0 0 15px #1eff45, 0 0 30px #1eff45,
         0 0 60px #1eff45;
+}
+
+.card{
+    padding: 10px;
+   
 }

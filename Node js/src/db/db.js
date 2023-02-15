@@ -7,7 +7,7 @@ const { BadRequestError, NotFoundError } = require('../utils/api-errors');
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  // password:'password',
+  password:'password',
   database: 'taxmanager'
 });
 db.connect((err) => {

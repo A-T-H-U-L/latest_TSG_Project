@@ -5,15 +5,18 @@ import { marker } from '@biesbjerg/ngx-translate-extract-marker';
 
 import { Shell } from '@app/shell/shell.service';
 import { AuthenticationGuard } from '@app/auth';
-import { ViewComponent } from './view.component';
+
+import { UserViewComponent } from './user-view.component';
 
 
 const routes: Routes = [
-  Shell.childRoutes([
 
-    { path: 'view/:id', component: ViewComponent, data: { title: marker('View') }},
+    { path: 'userView', component: UserViewComponent, data: { title: marker('UserView') },canActivate:[AuthenticationGuard] },
+//   Shell.childRoutes([
+
+     
    
-  ]),
+//   ]),
 ];
 
 @NgModule({
@@ -21,4 +24,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: [],
 })
-export class ViewRoutingModule {}
+export class UserViewGridRoutingModule {}

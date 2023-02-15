@@ -15,12 +15,12 @@ export interface RandomQuoteContext {
 @Injectable({
   providedIn: 'root',
 })
-export class TaxProService {
+export class AdminViewService {
   constructor(private httpClient: HttpClient) {}
 
   getTaxProList(): Observable<any> {
 
-    return this.httpClient.get('/taxpro/list', { observe: "response" }).pipe(
+    return this.httpClient.get('/taxpro/dataList', { observe: "response" }).pipe(
       map((res: HttpResponse<any>) => {
         return res.body;
       })

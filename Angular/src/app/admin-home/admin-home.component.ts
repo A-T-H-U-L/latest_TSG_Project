@@ -15,6 +15,10 @@ export class AdminHomeComponent implements OnInit {
     
   }
 navigate(){
-  this._roter.navigate(['/addDetail'])
+  this._roter.navigate(['/add'])
 }
+navigate3(){
+  this._roter.navigate(['/adminView']) 
+}
+
 }

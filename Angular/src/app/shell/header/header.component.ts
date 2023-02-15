@@ -14,7 +14,7 @@ import { Observable, of } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
   menuHidden = true;
-
+userName:any;
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
@@ -22,6 +22,8 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+
+this.userName = this.credentialsService.getUserName();
     
 }
 

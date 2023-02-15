@@ -38,19 +38,47 @@ const TaxProService = {
       }
       
     },
+
+    //service for listing the taxProfesional
+    dolistData: async (httpRequestBody) => {
+      try {
+        console.log("httpRequestBody",httpRequestBody.taxProId)
+
+        var sqlObj = `SELECT taxprofessionaldata.taxProId, taxprofessionaldata.taxProName, taxprofessionaldata.consultentType, taxprofessionaldata.ratePerHour ,state.stateName  
+        FROM state  
+        INNER JOIN taxprofessionaldata  
+        ON state.stateId = taxprofessionaldata.stateId  
+        ORDER BY taxProId;`;
+        // making db call for inset user in to user_account table with role table inserion 
+        const resultObj = await db.promise(sqlObj)
+     
+        if (resultObj.length == 0) {
+          //
+          logger.error("dolistData() Insert failed");
+          //
+          throw new BadRequestError('Insert failed');
+        }
+        return {
+          resultObj
+        };
+      } catch (error) {
+         logger.error(" dolist() "+error);
+      }
+      
+    },
     viewDetailTaxPro: async (httpRequest) => {
       console.log("httpRequestId",httpRequest.params.id)
       const userId=httpRequest.params.id
+      console.log('userId',httpRequest.params.id)
       try {
         console.log("httpRequestBody",httpRequest)
 
-        var sqlObj = `SELECT taxprofessionaldata.taxProId, taxprofessionaldata.taxProName, taxprofessionaldata.consultentType, taxprofessionaldata.ratePerHour ,state.stateName,city.cityName
+        var sqlObj = `SELECT taxprofessionaldata.taxProId, taxprofessionaldata.taxProName, taxprofessionaldata.consultentType, taxprofessionaldata.ratePerHour ,state.stateName
         FROM taxprofessionaldata
         LEFT JOIN state 
         ON taxprofessionaldata.stateId = state.stateId
-        LEFT JOIN city
-        ON state.cityId = city.cityId
-        WHERE taxprofessionaldata.taxProId = ${userId};`;
+        
+        WHERE taxprofessionaldata.taxProId = '${userId}';`;
         // making db call for inset user in to user_account table with role table inserion 
         const resultObj = await db.promise(sqlObj)
      
