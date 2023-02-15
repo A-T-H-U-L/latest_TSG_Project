@@ -1,0 +1,64 @@
+
+<div class="container-box">
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form (ngSubmit)="add()" id="form" [formGroup]="taxProDetail" novalidate>
+        <h3>Add Details</h3>
+
+        <label for="Name">Name
+            <input class="input" type="text" formControlName="name" placeholder="Name" id="Name">
+            <small [hidden]="taxProDetail.controls['name'].valid || taxProDetail.controls['name'].untouched"
+                class="text-danger" translate>
+                name is required*
+            </small></label>
+        <label for="Rate Per Hour">Rate Per Hour
+        <input type="text" class="input" formControlName="ratePerHour" placeholder="Rate Per Hour" id="Rate Per Hour">
+    
+        <small [hidden]="taxProDetail.controls['ratePerHour'].valid || taxProDetail.controls['ratePerHour'].untouched"
+        class="text-danger" translate>
+        Rate Per Hour is required*
+    </small>
+    </label>
+        <label for="Catagory">Catagory</label>
+
+
+        <table>
+            <tr>
+                <td><input type="radio" id="Small business" formControlName="consultentType" name="consultentType"
+                        value="Small business" checked>
+                    <label for="Small business">Small business</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="Employed" name="consultentType" formControlName="consultentType" value="Smallbusiness">
+                    <label for="Employed">Employed</label>
+                </td>
+            </tr>
+            <tr>
+                <td> <input type="radio" id="Individual" name="consultentType" formControlName="consultentType" value="Individual">
+                    <label for="Individual">Individual</label>
+                </td>
+            </tr>
+        </table>
+
+
+        <label for="cars">Choose the state:</label>
+
+        <select class="select" name="state" formControlName="state" id="state">
+            <option value="Kerala">Kerala</option>
+            <option value="TamilNadu">TamilNadu</option>
+            <option value="Karnataka">Karnataka</option>
+
+        </select>
+
+
+
+        <button class="btn">Add</button>
+        <!-- <div class="social"> -->
+        <!-- <div class="go"><i class="fab fa-google"></i>  Google</div>
+      <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div> -->
+        <!-- </div> -->
+    </form>
+</div>
